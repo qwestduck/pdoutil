@@ -31,7 +31,7 @@ $p->finalize();
 
 $stmt = $pdo->prepare($p->get_query());
 $stmt->execute($p->get_params());
-$user = $stmt->fetch();
+$result = $stmt->fetch();
 ```
 
 
