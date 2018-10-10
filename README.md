@@ -6,14 +6,14 @@ $query = "SELECT user FROM users WHERE name IN :employee[]" AND job = :occupatio
 
 $p = new PDOUtil($query);
 
-$p-\>add\_data('employee[]', array('Alice', 'Bob'));
-$p-\>add\_data('occupation', 'developer');
+$p->add_data('employee[]', array('Alice', 'Bob'));
+$p->add_data('occupation', 'developer');
 
-$p-\>finalize();
+$p->finalize();
 
-$stmt = $pdo-\>prepare($p-\>get\_query());
-$stmt-\>execute($p-\>get\_params());
-$user = $stmt-\>fetch();
+$stmt = $pdo->prepare($p->get_query());
+$stmt->execute($p->get_params());
+$user = $stmt->fetch();
 ```
 
 
