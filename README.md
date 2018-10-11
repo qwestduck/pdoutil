@@ -20,12 +20,12 @@ try {
 
 require_once('pdoutil.php');
 
-$query = "SELECT user FROM users WHERE name IN :employee[] AND job = :occupation";
+$query = "SELECT user FROM users WHERE name IN (:employee[]) AND job = :occupation";
 
 $p = new PDOUtil($query);
 
-$p->add_data('employee[]', array('Alice', 'Bob'));
-$p->add_data('occupation', 'developer');
+$p->add_data(':employee[]', array('Alice', 'Bob'));
+$p->add_data(':occupation', 'developer');
 
 $p->finalize();
 
